@@ -19,6 +19,11 @@ func routes(_ app: Application) throws {
     let controllerProducts = ProductsController()
     app.get("getGoodById", use: controllerProducts.getGoodById)
     app.get("catalogData", use: controllerProducts.catalogData)
+    
+    let controllerReviews = ReviewController()
+    app.get("addReview", use: controllerReviews.addReview)
+    app.get("removeReview", use: controllerReviews.removeReview)
+    app.get("getListReview", use: controllerReviews.getListReview(_:))
 
     try app.register(collection: TodoController())
 }
