@@ -20,4 +20,16 @@ class BasketController {
         )
         return req.eventLoop.future(response)
     }
+    
+    func removeFromBasket(_ req: Request) throws -> EventLoopFuture<RemoveFromBasketResponse> {
+        guard let body = try? req.query.decode(RemoveFromBasketRequest.self) else {
+            throw Abort(.badRequest)
+        }
+        print(body)
+        let response = RemoveFromBasketResponse(
+            result: 1,
+            error_message: nil
+        )
+        return req.eventLoop.future(response)
+    }
 }
