@@ -28,6 +28,7 @@ func routes(_ app: Application) throws {
     let controllerBasket = BasketController()
     app.get("addToBasket", use: controllerBasket.addToBasket)
     app.get("removeFromBasket", use: controllerBasket.removeFromBasket)
+    app.get("pay", use: controllerBasket.payBasket)
 
     try app.register(collection: TodoController())
 }
