@@ -32,4 +32,16 @@ class BasketController {
         )
         return req.eventLoop.future(response)
     }
+    
+    func payBasket(_ req: Request) throws -> EventLoopFuture<PayBasketResponse> {
+        guard let body = try? req.query.decode(PayBasketRequest.self) else {
+            throw Abort(.badRequest)
+        }
+        print(body)
+        let response = PayBasketResponse(
+            result: 1,
+            error_message: nil
+        )
+        return req.eventLoop.future(response)
+    }
 }
